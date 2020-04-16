@@ -7,34 +7,48 @@ import {
   View,
   Text,
   StatusBar,
-  Button,
   FlatList
 } from 'react-native';
 import {connect} from 'react-redux';
 import {addTaskListAction} from '../actions/taskActions';
 import Task from './Task';
 import TaskListForm from './TaskListForm';
+import { Container, Header, Content, Form, Item, Input, Label, Button, List, ListItem } from 'native-base';
+
+
 const TaskList = (props) => {
     const {taskList,addTaskList} = props;
     console.log(taskList,addTaskList);
-    
+    let tasks = [];
+    taskList.forEach((item,index) => {
+      tasks.push(
+        <Task task={item} key={index}/>
+      );
+
+    });
   return (
     
-      <View>
-          <Text>task list</Text>
+      <ScrollView style={styles.container}>
           <TaskListForm/>
-          <FlatList
-            data={taskList}
-            keyExtractor={(item,index)=>index.toString()}
-            renderItem={({item})=>{
-                return <Task task={item}/>
-            }}
-          />
-      </View>
+          <List>
+            {tasks}
+
+          </List>
+          
+            
+          
+      </ScrollView>
     
     
   );
 };
+
+const styles = StyleSheet.create({
+  container:{
+    padding:10
+  }
+})
+
 const mapStateToProps =(state)=>{
     return {
         taskList:state.taskReducer

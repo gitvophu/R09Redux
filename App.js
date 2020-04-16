@@ -12,7 +12,7 @@ import { createStore,combineReducers } from 'redux';
 import {Provider} from 'react-redux';
 import taskReducer from './src/reducers/taskReducer';
 import TaskList from './src/component/TaskList';
-
+import { Container, Header,Body,Title, Content, Form, Item, Input, Label, Button as ButtonNB } from 'native-base';
 
 const reducers = combineReducers({
   taskReducer
@@ -26,10 +26,17 @@ store.subscribe(()=>{
 const App = () => {
   return (
     <Provider store={store}>
-      <View>
-          <Text>DEMO TODO LIST: SỬ DỤNG REDUX</Text>
-          <TaskList/>
-      </View>
+      <Container>
+      <Header >
+        <Body>
+            <Title>DEMO TODO LIST: SỬ DỤNG REDUX</Title>
+          </Body>
+      </Header>
+      
+        <View>
+            <TaskList/>
+        </View>
+      </Container>
     </Provider>
     
   );
