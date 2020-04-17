@@ -8,6 +8,24 @@ const addTaskListAction = (task)=>{
     }
 }
 
+const deleteTaskListAction = (id) =>{
+    return {
+        type:'DELETE',
+        payload:{
+            id:id
+        },
+    }
+}
+const toggleTaskStatusAction = (id) =>{
+    return {
+        type:'TOGGLE_STATIS',
+        payload:{
+            id:id
+        },
+    }
+}
 export {
-    addTaskListAction
+    addTaskListAction,
+    deleteTaskListAction,
+    toggleTaskStatusAction,
 }

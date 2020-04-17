@@ -18,7 +18,6 @@ import { Container, Header, Content, Form, Item, Input, Label, Button, List, Lis
 
 const TaskList = (props) => {
     const {taskList,addTaskList} = props;
-    console.log(taskList,addTaskList);
     let tasks = [];
     taskList.forEach((item,index) => {
       tasks.push(
@@ -26,6 +25,7 @@ const TaskList = (props) => {
       );
 
     });
+    
   return (
     
       <ScrollView style={styles.container}>
